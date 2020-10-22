@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function promiseTest4(pay){
+      return new Promise((ok)=>{
+        let change = pay -100;
+        ok(change);
+      })
+    }
+    console.log(promiseTest4(300));
+
+    promiseTest4(300).then((change)=>{
+      console.log(change);
+      return promiseTest4(change);
+    }).then(change=>{
+      console.log(change);
+    });
+
+  </script>
+  
+</body>
+</html>
